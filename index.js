@@ -5,6 +5,8 @@ let questions = [{question: "Which nation was the first Asian country to reach t
 {question: "Which national team had the most completed passes?", answers: ["Belgium", "Argentina", "Brazil", "Cameroon"], correctAnswer: 1}]
 let questionScreen = document.querySelector("#questions");
 let startScreen = document.querySelector("#start-screen");
+let currentQuestion = 0;
+let index = 0;
 
 
 
@@ -15,10 +17,28 @@ questionScreen.setAttribute("class", "");
 startScreen.setAttribute("class", "hide");
   });
 
-let currentQuestion = 0;
+navigate()
+
+//navigate the questions
+  function navigate() {
+    for (let index = 0; index < questions.length; index++) {
+        questionTitle.textContent = questions[index].question;
+                
+        
+    }
+    
+    // if (index === 2)
+    
+  }
+
+
+
 
 //call the questions
 // questionTitle.textContent = questions[i].question;
+
+
+
 
 // //call the answer buttons
 // for (let i = 0; i < 3; i++) {
