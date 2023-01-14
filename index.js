@@ -2,28 +2,34 @@ let choicesEl = document.querySelector("#choices");
 let questionTitle = document.querySelector("#question-title");
 let questions = [{question: "Which nation was the first Asian country to reach the World Cup semi-finals?", answers: ["South Korea", "India", "Japan", "China"], correctAnswer: 0}, 
 {question: "Who is the all-time leading World Cup goalscorer?", answers: ["Miroslav Klose", "Cristiano Ronaldo", "Just Fontaine", "Gary Lineker"], correctAnswer: 0}, 
-{question: "Which national team had the most completed passes?", answers: ["Belgium", "Argentina", "Brazil", "Cameroon"], correctAnswer: 1}
+{question: "Which national team had the most completed passes?", answers: ["Belgium", "Argentina", "Brazil", "Cameroon"], correctAnswer: 1}]
+let questionScreen = document.querySelector("#questions");
+let startScreen = document.querySelector("#start-screen");
 
 
 
-]
+
+//remove class hide from questions and place it to start screen with setAttribute
+document.addEventListener("click", function(){
+questionScreen.setAttribute("class", "");
+startScreen.setAttribute("class", "hide");
+  });
 
 let currentQuestion = 0;
 
 //call the questions
-questionTitle.textContent = questions[i].question;
+// questionTitle.textContent = questions[i].question;
 
-//call the answer buttons
-for (let i = 0; i < 3; i++) {
+// //call the answer buttons
+// for (let i = 0; i < 3; i++) {
 
-let button1 = document.createElement("button");
-button1.innerHTML = questions[i].answers[i];
-choicesEl.appendChild(button1);
+// let button1 = document.createElement("button");
+// button1.innerHTML = questions[i].answers[i];
+// choicesEl.appendChild(button1);
 
-}
+// }
 
 
-//remove class hide from questions and place it to start screen with setAttribute
 
 
 // choicesEl.addEventListener("click", function (event) {
