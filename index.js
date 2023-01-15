@@ -7,12 +7,12 @@ let questionScreen = document.querySelector("#questions");
 let startScreen = document.querySelector("#start-screen");
 let currentQuestion = 0;
 let index = 0;
-
+let btn = document.querySelector("button");
 
 
 
 //remove class hide from questions and place it to start screen with setAttribute
-document.addEventListener("click", function(){
+btn.addEventListener("click", function(){
 questionScreen.setAttribute("class", "");
 startScreen.setAttribute("class", "hide");
   });
@@ -23,9 +23,27 @@ navigate()
   function navigate() {
     for (let index = 0; index < questions.length; index++) {
         questionTitle.textContent = questions[index].question;
-                
         
+        for (let index = 0; index < questions.length; index++) {
+            
+            let button0 = document.createElement("button");
+            button0.innerHTML = questions[index].answers[0];
+            choicesEl.appendChild(button0);
+        }
     }
+    
+    // choicesEl.addEventListener("click", function (event) {
+    
+    // if(event.target.matches("button")){
+    // event.target.getAttribute("data-index")
+    
+    // }
+        
+    // })
+
+    // let button1 = document.createElement("button");
+    // button1.innerHTML = questions[index].answers[1];
+    // choicesEl.appendChild(button1);
     
     // if (index === 2)
     
@@ -34,32 +52,6 @@ navigate()
 
 
 
-//call the questions
-// questionTitle.textContent = questions[i].question;
-
-
-
-
-// //call the answer buttons
-// for (let i = 0; i < 3; i++) {
-
-// let button1 = document.createElement("button");
-// button1.innerHTML = questions[i].answers[i];
-// choicesEl.appendChild(button1);
-
-// }
-
-
-
-
-// choicesEl.addEventListener("click", function (event) {
-
-// if(event.target.matches("button")){
-// event.target.getAttribute("data-index")
-
-// }
-    
-// })
 
 
 //basic timer
