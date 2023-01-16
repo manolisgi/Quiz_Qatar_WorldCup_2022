@@ -14,30 +14,28 @@ let index = 0;
 
 //remove class hide from questions and place it to start screen with setAttribute
 btn.addEventListener("click", function(){
-questionScreen.setAttribute("class", "");
-startScreen.setAttribute("class", "hide");
-  });
+  questionScreen.setAttribute("class", "");
+  startScreen.setAttribute("class", "hide");
+});
 
-// function questionChange() {
-//   index = index +1;
-//   currentQuestion = index;
-// }
+
 
 navigate();
 
 //navigate the questions
 function navigate() {
-
-  currentQuestion = questions[index];
+  
+  
   
   questionTitle.textContent = questions[index].question;
+  choicesEl.innerHTML = "";
   for (let i = 0; i < 4; i++) {
     let button0 = document.createElement("button");
-    button0.innerHTML = questions[index].answers[i];
+    button0.textContent = questions[index].answers[i];
     choicesEl.appendChild(button0);
     
   }
-
+  
   let btnClicked = document.querySelector('#questions')
   btnClicked.addEventListener("click", (event) => {
     if(event.target.tagName === 'BUTTON') {
@@ -52,13 +50,11 @@ function navigate() {
       wrong.textContent = "Wrong Answer!";
       questionsEl.appendChild(wrong);
     }
-    currentQuestion ++ ;
     index ++ ;
-  navigate();
-    })
-    
-  }
-  // questionChange()
+    navigate();
+  })
+  
+}
   
 
 
