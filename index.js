@@ -21,24 +21,25 @@ navigate()
 
 //navigate the questions
   function navigate() {
-    for (let index = 0; index < questions.length; index++) {
-        questionTitle.textContent = questions[index].question;
-        
+    
+    questionTitle.textContent = questions[currentQuestion].question;
+    for (let i = 0; i < 4; i++) {
+        let button0 = document.createElement("button");
+        button0.innerHTML = questions[currentQuestion].answers[i];
+        choicesEl.appendChild(button0);           
+    }
             
-    let button0 = document.createElement("button");
-    button0.innerHTML = questions[index].answers;
-    choicesEl.appendChild(button0);
 
-        choicesEl.addEventListener("click", function (event) {
-        if(event.target.matches("button")){
-        console.log(event.target.getAttribute("data-index"))}
-        })
+        // choicesEl.addEventListener("click", function (event) {
+        // if(event.target.matches("button")){
+        // console.log(event.target.getAttribute("index"))}
+        // })
         
 
        
 
 
-    }
+   
     
 
     
@@ -50,9 +51,7 @@ navigate()
 
 
 
-// }
-    
-// })
+
 
 // let button1 = document.createElement("button");
 // button1.innerHTML = questions[index].answers[1];
