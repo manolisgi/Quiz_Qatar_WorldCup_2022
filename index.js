@@ -5,9 +5,9 @@ let questions = [{question: "Which nation was the first Asian country to reach t
 {question: "Which national team had the most completed passes?", answers: ["Belgium", "Argentina", "Brazil", "Cameroon"], correctAnswer: 1}]
 let questionScreen = document.querySelector("#questions");
 let startScreen = document.querySelector("#start-screen");
+let btn = document.querySelector("button");
 let currentQuestion = 0;
 let index = 0;
-let btn = document.querySelector("button");
 
 
 
@@ -24,36 +24,41 @@ navigate()
     for (let index = 0; index < questions.length; index++) {
         questionTitle.textContent = questions[index].question;
         
-        for (let index = 0; index < questions.length; index++) {
             
-            let button0 = document.createElement("button");
-            button0.innerHTML = questions[index].answers[0];
-            choicesEl.appendChild(button0);
-        }
+    let button0 = document.createElement("button");
+    button0.innerHTML = questions[index].answers;
+    choicesEl.appendChild(button0);
+
+        choicesEl.addEventListener("click", function (event) {
+        if(event.target.matches("button")){
+        console.log(event.target.getAttribute("data-index"))}
+        })
+        
+
+       
+
+
     }
     
-    // choicesEl.addEventListener("click", function (event) {
+
     
-    // if(event.target.matches("button")){
-    // event.target.getAttribute("data-index")
     
-    // }
-        
-    // })
+}
 
-    // let button1 = document.createElement("button");
-    // button1.innerHTML = questions[index].answers[1];
-    // choicesEl.appendChild(button1);
+
+
+
+
+
+// }
     
-    // if (index === 2)
-    
-  }
+// })
 
+// let button1 = document.createElement("button");
+// button1.innerHTML = questions[index].answers[1];
+// choicesEl.appendChild(button1);
 
-
-
-
-
+// if (index === 2)
 //basic timer
 //let timer = 90;
 //let intervalId = setInterval(function(){
