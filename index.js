@@ -20,39 +20,42 @@ startScreen.setAttribute("class", "hide");
 
 // function questionChange() {
 //   index = index +1;
-//   currentQuestion = questions[index];
+//   currentQuestion = index;
 // }
 
 navigate();
 
 //navigate the questions
 function navigate() {
+
+  currentQuestion = questions[index];
   
-  questionTitle.textContent = questions[currentQuestion].question;
+  questionTitle.textContent = questions[index].question;
   for (let i = 0; i < 4; i++) {
     let button0 = document.createElement("button");
-    button0.innerHTML = questions[currentQuestion].answers[i];
+    button0.innerHTML = questions[index].answers[i];
     choicesEl.appendChild(button0);
     
   }
+
   let btnClicked = document.querySelector('#questions')
-  
   btnClicked.addEventListener("click", (event) => {
     if(event.target.tagName === 'BUTTON') {
-        console.log(event.target.innerText);
-      }
-      if(event.target.innerText === questions[currentQuestion].correctAnswer){
-        let correct = document.createElement("h2");
-        correct.textContent = "Correct Answer";
-        questionsEl.appendChild(correct);
-      }else{
-        let wrong = document.createElement("h2");
-        wrong.textContent = "Wrong Answer!";
-        questionsEl.appendChild(wrong);
-
-      }
+      console.log(event.target.innerText);
+    }
+    if(event.target.innerText === questions[index].correctAnswer){
+      let correct = document.createElement("h2");
+      correct.textContent = "Correct Answer!";
+      questionsEl.appendChild(correct);
+    }else{
+      let wrong = document.createElement("h2");
+      wrong.textContent = "Wrong Answer!";
+      questionsEl.appendChild(wrong);
+    }
+    currentQuestion ++ ;
+    index ++ ;
+  navigate();
     })
-  
     
   }
   // questionChange()
